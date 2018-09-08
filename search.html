@@ -1,0 +1,144 @@
+<!DOCTYPE HTML> 
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>谷歌百度搜索</title>
+<style>
+.father{position:fixed;width:100%;height:100%;top;0;left:0;background-color:rgba(0,0,0,0);}
+.son{position: absolute;top:0;left:0;bottom:0;right:0;width:100%;height:57%;margin:auto;background-color:white;}
+.search_field{ /*输入框样式*/
+	width: 536px;
+	height: 36px;
+	line-height: 36px;
+	border: 1px solid #d0d0d0;
+	font-size:70%
+	float: center;
+}
+.button {
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#f5f5f5),
+		to(#f1f1f1));
+	background-image: -webkit-linear-gradient(top, #f5f5f5, #f1f1f1);
+	-webkit-border-radius: 2px;
+	-webkit-user-select: none;
+	background-color: #f2f2f2;
+	border: 1px solid #f2f2f2;
+	border-radius: 2px;
+	color: #757575;
+	cursor: default;
+	font-family: arial, sans-serif;
+	font-size: 13px;
+	font-weight: bold;
+	margin: 11px 4px;
+	min-width: 54px;
+	padding: 0 16px;
+	text-align: center
+}
+.button {
+	height: 36px;
+	line-height: 27px
+}
+img {
+	/*border-radius: 8px;*/
+    /*position: absolute;
+        top: 50%;
+        left: 50%;*/
+        /*width: 50px;
+        height: 50px;*/
+        /*position: absolute;
+        top: 0%;
+        left: 50%;*/
+        /*margin-top: -25px; /* 高度的一半 */
+        /*margin-left: -25%; /* 宽度的一半 */*/
+    }
+    #section {
+    width:350px;
+    float:left;
+    padding:10px;	 	 
+}
+    #footer {
+    background-color:white;
+    color:black;
+    clear:both;
+    text-align:center;
+	font-family: arial, sans-serif;
+    font-size: 10px;
+   padding:5px;
+   position:fixed;
+   bottom:0;
+}
+</style>
+<script type="text/javascript">
+    function mainSearch()
+    {
+    	var searchContent = searchForm.content.value;
+    	baiduURL='https://www.baidu.com/s?wd='+searchContent;
+    	googleURL = 'https://www.google.com/search?q='+searchContent;
+    	window.open(baiduURL);
+    	window.open(googleURL);
+    }
+    // 检测回车并搜索
+    function enterSearch(event)   
+    {
+    	if (event.keyCode == 13) {
+    		var searchContent = searchForm.content.value;
+    		baiduURL='https://www.baidu.com/s?wd='+searchContent;
+    		googleURL = 'https://www.google.com/search?q='+searchContent;
+    		window.open(baiduURL);
+    		window.open(googleURL);
+    	}
+    }
+    function googleSearch()
+    {
+    	var searchContent = searchForm.content.value;
+    	googleURL = 'https://www.google.com/search?q='+searchContent;
+    	window.open(googleURL);
+    }
+    function baiduSearch()
+    {
+    	var searchContent = searchForm.content.value;
+    	baiduURL='https://www.baidu.com/s?wd='+searchContent;
+    	window.open(baiduURL);
+    }
+</script>
+</head>
+<body>
+	<div id="section">
+	<div class="father">
+		<div class="son">
+
+			<table border="0" align="center">
+				<tr>
+					<td colspan = 2 align="center">
+                        <img src="googleDragon.JPG" width="636" alt="谷歌百度联合搜索">
+					</td>
+				</tr>
+				<tr>
+					<td colspan = 2>
+						<form name="searchForm" target="nm_iframe">
+							<input type="text" name="content" class='search_field' id="search_field" maxLength=256   size=55  onkeypress="enterSearch(event)"> 
+							<script>   
+								document.searchForm.content.focus();   
+							</script>
+							<input type="button" name="search" class="button"  value="联合搜索" onclick="mainSearch()"> <!-- 提交表单后不跳转 -->
+						</form>
+						<iframe id="id_iframe" name="nm_iframe" style="display:none;"></iframe>
+					</td>
+				</tr>
+				<tr>
+						<td align="right">
+							<input  type="submit" value="谷歌搜索" name=btnG class="button" onclick="googleSearch()">
+						</td>
+						<td align="left">
+							<input type="submit" value="百度搜索" class="button" onclick="baiduSearch()">
+
+						</td>
+				</tr>
+			</table> 
+		</div>
+	</div>
+	</div>
+	<div id="footer">
+		注意：请设置允许本页面弹出窗口
+	</div>
+</body>
+</html>
